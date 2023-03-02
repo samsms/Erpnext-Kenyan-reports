@@ -2,8 +2,8 @@ from . import __version__ as app_version
 
 app_name = "techsavanna_payroll"
 app_title = "Techsavanna Payroll"
-app_publisher = "samson"
-app_description = "Paayroll Reports"
+app_publisher = "samson "
+app_description = "Payroll reports"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "samsaf674@gmail.com"

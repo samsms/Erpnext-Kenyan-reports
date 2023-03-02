@@ -1,6 +1,6 @@
 ## Techsavanna Payroll
 
-Paayroll Reports
+Payroll reports
 
 #### License
 

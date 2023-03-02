@@ -9,8 +9,8 @@ from techsavanna_payroll import __version__ as version
 setup(
 	name="techsavanna_payroll",
 	version=version,
-	description="Paayroll Reports",
-	author="samson",
+	description="Payroll reports",
+	author="samson ",
 	author_email="samsaf674@gmail.com",
 	packages=find_packages(),
 	zip_safe=False,
