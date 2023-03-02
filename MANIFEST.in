@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include techsavanna_payroll *.css
+recursive-include techsavanna_payroll *.csv
+recursive-include techsavanna_payroll *.html
+recursive-include techsavanna_payroll *.ico
+recursive-include techsavanna_payroll *.js
+recursive-include techsavanna_payroll *.json
+recursive-include techsavanna_payroll *.md
+recursive-include techsavanna_payroll *.png
+recursive-include techsavanna_payroll *.py
+recursive-include techsavanna_payroll *.svg
+recursive-include techsavanna_payroll *.txt
+recursive-exclude techsavanna_payroll *.pyc
