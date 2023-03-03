@@ -8,6 +8,21 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "samsaf674@gmail.com"
 app_license = "MIT"
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                (
+                   	"Employee-nita_member_number",
+											
+                ),
+            ]
+        ],
+    },
+]
 
 # Includes in <head>
 # ------------------
