@@ -83,7 +83,7 @@ def get_data(filters, company_currency, conditions=""):
         frappe.throw(_("To Date cannot be before From Date. {}").format(filters.to_date))
 
     data = frappe.db.sql("""
-        SELECT ss.employee, ss.employee_name, ss.base, ss.housing_allowance,
+        SELECT ss.employee, ss.employee_name, sd.BS, ss.housing_allowance,
         ss.gross_pay, ss.nssf, ss.nhif, ss.paye, ss.total_deduction, ss.net_pay
         FROM `tabEmployee` e
         INNER JOIN `tabSalary Slip` ss ON e.name = ss.employee
