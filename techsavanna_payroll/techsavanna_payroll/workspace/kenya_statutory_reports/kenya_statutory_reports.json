@@ -24,7 +24,7 @@
   },
   {
    "hidden": 0,
-   "is_query_report": 0,
+   "is_query_report": 1,
    "label": "NITA Report",
    "link_to": "NITA",
    "link_type": "Report",
@@ -33,15 +33,24 @@
   },
   {
    "hidden": 0,
-   "is_query_report": 0,
+   "is_query_report": 1,
    "label": "P10 Monthly",
    "link_to": "P10 monthly itax",
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "PAYE Report",
+   "link_to": "PAYE",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-03-06 23:10:17.676807",
+ "modified": "2023-07-26 11:16:15.796447",
  "modified_by": "Administrator",
  "module": "Techsavanna Payroll",
  "name": "Kenya Statutory Reports",
