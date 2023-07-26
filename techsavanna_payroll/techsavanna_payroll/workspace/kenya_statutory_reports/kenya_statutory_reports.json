@@ -91,7 +91,24 @@
      "link_type": "Report",
      "onboard": 0,
      "type": "Link"
-    },
+    },  {
+        "hidden": 0,
+        "is_query_report": 1,
+        "label": "P10 Monthly",
+        "link_to": "P10 monthly itax",
+        "link_type": "Report",
+        "onboard": 0,
+        "type": "Link"
+       },
+       {
+        "hidden": 0,
+        "is_query_report": 1,
+        "label": "PAYE Report",
+        "link_to": "PAYE",
+        "link_type": "Report",
+        "onboard": 0,
+        "type": "Link"
+       },
     {
      "hidden": 0,
      "is_query_report": 0,
@@ -119,25 +136,8 @@
      "link_type": "Report",
      "onboard": 0,
      "type": "Link"
-    },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "P10 Monthly",
-   "link_to": "P10 monthly itax",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "PAYE Report",
-   "link_to": "PAYE",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  }
+    }
+
  ],
  "modified": "2023-07-26 11:16:15.796447",
  "modified_by": "Administrator",
