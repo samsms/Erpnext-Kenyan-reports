@@ -65,12 +65,7 @@ def get_columns(salary_slips):
 		_("Employee") + ":Link/Employee:120",
 		_("Employee Name") + "::140",
 		_("Date of Joining") + "::80",
-		_("National ID") + "::90",
-		_("NSSF No") + "::90",
-		_("NHIF No") + "::90",
-		_("KRA Pin") + "::100",
-		_("Bank Name") + ":Link/Salary Slip:100",
-		_("Bank Account No") + ":Link/Salary Slip:120",		
+		_("National ID") + "::90"		
 		_("Branch") + ":Link/Branch:120",
 		_("Department") + ":Link/Department:120",
 		_("Designation") + ":Link/Designation:120",
