@@ -15,10 +15,11 @@ fixtures = [
             [
                 "name",
                 "in",
-                (
+                {
                    	"Employee-nita_member_number",
-											
-                ),
+                    "Employee-housing",
+                    "Employee-has_house_allowance"						
+				}
             ]
         ],
     },
