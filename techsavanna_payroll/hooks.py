@@ -139,7 +139,12 @@ fixtures = [
 #		"techsavanna_payroll.tasks.monthly"
 #	]
 # }
-
+scheduler_events = {
+    # Other scheduler events...
+    "hourly": [
+        "techsavanna_payroll.tasks.attendance.update_employee_checkins"
+    ]
+}
 # Testing
 # -------
 
