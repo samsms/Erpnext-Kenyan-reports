@@ -1,4 +1,7 @@
 from . import __version__ as app_version
+from techsavanna_payroll.tasks.attendance import update_employee_checkins
+import frappe
+# Define the on_start hook
 
 app_name = "techsavanna_payroll"
 app_title = "Techsavanna Payroll"
@@ -145,6 +148,7 @@ scheduler_events = {
         "techsavanna_payroll.tasks.attendance.update_employee_checkins"
     ]
 }
+before_migrate =  "techsavanna_payroll.tasks.attendance.update_employee_checkins"
 # Testing
 # -------
 

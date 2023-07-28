@@ -2,6 +2,7 @@ import requests
 import frappe
 from datetime import datetime
 
+# @frappe.whitelist(allow_guest=True)
 def update_employee_checkins():
     url = "http://197.254.14.222/biometricAPI/attendanceTimesheet.php"
     headers = {
@@ -14,28 +15,39 @@ def update_employee_checkins():
         if response.status_code == 200:
             attendance_data = response.json()
 
-            for attendance in attendance_data:
-                emp_id = attendance["empid"]
-                log_type = attendance["type"]
-                log_time_str = attendance["date"]
-                log_time = datetime.strptime(log_time_str, "%Y-%m-%d %H:%M:%S")
-
-                employee = frappe.get_doc("Employee", emp_id)
-
-                if employee:
-                    try:
-                        make_checkin(employee, log_type, log_time)
-                    except Exception as e:
-                        frappe.log_error(e)
-
-                    # Enqueue the post_data_to_api task
-                    frappe.enqueue(post_data_to_api, log_id=attendance["Logid"], queue="long")
+            # Process the attendance data in batches of 100 records
+            batch_size = 100
+            for i in range(0, len(attendance_data), batch_size):
+                batch = attendance_data[i:i + batch_size]
+                process_batch(batch)
 
         else:
             print("Failed to fetch attendance data. Status code:", response.status_code)
 
     except Exception as e:
         print("Error during API request:", e)
+
+def process_batch(batch):
+    for attendance in batch:
+        emp_id = attendance["empid"]
+        log_type = attendance["type"]
+        log_time_str = attendance["date"]
+        log_time = datetime.strptime(log_time_str, "%Y-%m-%d %H:%M:%S")
+
+        try:
+            employee = frappe.get_doc("Employee", emp_id)
+            if employee:
+                frappe.enqueue(make_checkin, employee=employee, log_type=log_type, time=log_time)
+        except frappe.DoesNotExistError:
+            frappe.log_error(f"Employee {emp_id} not found.")
+            continue
+        except Exception as e:
+            frappe.log_error(e)
+
+        # Add logid to the list after successful update
+        log_id = attendance["Logid"]
+        frappe.enqueue(post_data_to_api, log_id=log_id, queue="long")
+
 
 def make_checkin(employee, log_type, time):
     try:
@@ -58,13 +70,12 @@ def post_data_to_api(log_id):
     headers = {
         'Secret-Key': '/c054XQX5xsSrGh+yN/WWoEDzJqImC5NMLP4J521EJY='
     }
-    data = {
-        "logids": [log_id]
-    }
+    data =[log_id]
+    
 
     try:
         response = requests.post(url, headers=headers, json=data)
-
+        print(response.text)
         if response.status_code == 200:
             print("Data posted successfully for logid:", log_id)
         else:
