@@ -27,6 +27,12 @@ fixtures = [
         ],
     },
 ]
+default_mail_footer = """
+    <div>
+        
+</div>
+"""
+
 
 # Includes in <head>
 # ------------------
